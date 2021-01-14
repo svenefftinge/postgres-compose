@@ -7,6 +7,8 @@ ports:
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - before: sudo docker-up &
-    init: sleep 5 && docker-compose up --no-start
+  - before: |
+      sudo docker-up &
+      sleep 5
+    init: docker-compose up --no-start
     command: docker-compose up
