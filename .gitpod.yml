@@ -9,6 +9,8 @@ ports:
 tasks:
   - before: |
       sudo docker-up &
+      mkdir -p /workspace/pgadmin-data
+      sudo chown -R 5050:5050 /workspace/pgadmin-data
       sleep 5
     init: docker-compose up --no-start
     command: docker-compose up
